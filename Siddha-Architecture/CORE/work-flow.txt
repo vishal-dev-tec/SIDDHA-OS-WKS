@@ -1,0 +1,34 @@
++-----------------------------------------------------------------------+
+|                    STAGE 1: BARE-METAL BOOTSTRAP                      |
+|  - CPU boots to Reset Vector -> Loads Rust Core into RAM               |
+|  - Rust initializes GDT, IDT, and 4-Level Paging (Long Mode Space)     |
++----------------------------------┬------------------------------------+
+                                   │
+                                   ▼
++-----------------------------------------------------------------------+
+|                    STAGE 2: USERSPACE ESCALATION                      |
+|  - Rust core spawns Init Process -> Lowers privileges from Ring 0 to 3 |
+|  - Initializes the isolated, embedded Python Runtime Subsystem        |
++----------------------------------┬------------------------------------+
+                                   │
+                                   ▼
++-----------------------------------------------------------------------+
+|                    STAGE 3: REPO & TWEAK AUTOMATION                   |
+|  - Userspace triggers Siddha Assistant Interface                      |
+|  - Python applies automated low-latency kernel optimizations          |
+|  - Python securely syncs advanced tool repositories (e.g., BlackArch)  |
++----------------------------------┬------------------------------------+
+                                   │
+                                   ▼
++-----------------------------------------------------------------------+
+|               STAGE 4: HYBRID CODE COMPILATION (.sos)                 |
+|  - User saves hybrid Assembly/Script source code inside a '.sos' file  |
+|  - Frontend compiler scans, tokenizes, and sanitizes instructions     |
++----------------------------------┬------------------------------------+
+                                   │  Syscall Gateway (IPC)
+                                   ▼
++-----------------------------------------------------------------------+
+|                    STAGE 5: HARDWARE REGISTRATION                     |
+|  - Rust Backend cross-compiles tokens into clean machine opcodes      |
+|  - CPU Registers (RAX, RBX, etc.) execute calculations natively       |
++-----------------------------------------------------------------------+
